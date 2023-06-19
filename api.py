@@ -50,6 +50,7 @@ for page in pages:
     published = datetime.fromisoformat(published)
     print(url, title, published)
     
+    
 def create_page(data: dict):
     create_url = "https://api.notion.com/v1/pages"
 
@@ -70,6 +71,7 @@ data = {
 
 create_page(data)
 
+
 def update_page(page_id: str, data: dict):
     url = f"https://api.notion.com/v1/pages/{page_id}"
 
@@ -86,6 +88,7 @@ title = "updated title"
 update_data = {"Title": {"rich_text":[{"text": {"content": title}}] } ,"Published": {"date": {"start": new_date, "end": None}} }
 
 update_page(page_id, update_data)
+
 
 def delete_page(page_id: str):
     url = f"https://api.notion.com/v1/pages/{page_id}"
